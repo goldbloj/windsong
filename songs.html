@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        (function () {
+            var k = 'windsong-theme';
+            var t = localStorage.getItem(k);
+            if (t === 'dark' || t === 'light') {
+                document.documentElement.setAttribute('data-theme', t);
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+        (function () {
+            var k = 'windsong-lang';
+            var t = localStorage.getItem(k);
+            if (t === 'hi' || t === 'en') {
+                document.documentElement.setAttribute('data-lang', t);
+                document.documentElement.setAttribute('lang', t === 'hi' ? 'hi' : 'en');
+            } else {
+                document.documentElement.setAttribute('data-lang', 'en');
+                document.documentElement.setAttribute('lang', 'en');
+            }
+        })();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J59MNLBX5Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-J59MNLBX5Y');
+    </script>
+
+    <meta property="og:title" content="Windsong - Human Conditions" />
+    <meta property="og:image" content="https://windsong.music/images/windsong-logo-bold-rev.png" />
+    <meta property="og:description" content="A feature documentary film of the recording sessions, song backstories, and interview footage is currently in post production — with an August 2026 release date. The film was produced by Joseph Garner (Joker, Joker 2) and directed by Meliek Gaynor." />
+    <meta property="og:url" content="https://windsong.music" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Windsong" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Windsong - Human Conditions" />
+
+    <title>Windsong — Human Conditions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<section class="page cover">
+
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Main navigation">
+
+            <div class="site-nav__controls">
+
+                <button
+                        type="button"
+                        class="lang-toggle"
+                        id="lang-toggle"
+                        aria-label="Switch to Hindi"
+                        title="Switch to Hindi"
+                >
+                <span class="lang-toggle__flag lang-toggle__flag--en" aria-hidden="true">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10" width="18" height="10" focusable="false">
+          <rect width="19" height="10" fill="#b22234"/>
+          <path fill="#fff" d="M0 0.77h19V1.9H0zm0 2.26h19v1.13H0zm0 2.26h19v1.13H0zm0 2.26h19v1.13H0zm0 2.26h19V10H0z"/>
+          <rect width="7.6" height="5.38" fill="#3c3b6e"/>
+        </svg>
+                </span>
+
+                    <span class="lang-toggle__flag lang-toggle__flag--hi" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="18" height="12" focusable="false">
+          <rect width="9" height="2" fill="#FF9933"/>
+          <rect y="2" width="9" height="2" fill="#fff"/>
+          <rect y="4" width="9" height="2" fill="#138808"/>
+          <circle cx="4.5" cy="3" r="0.55" fill="none" stroke="#000080" stroke-width="0.08"/>
+          <g stroke="#000080" stroke-width="0.06" fill="none">
+            <path d="M4.5 2.45v1.1M4.05 3h0.9M4.2 2.6l0.6 0.8M4.8 2.6l-0.6 0.8M4.2 3.4l0.6-0.8M4.8 3.4l-0.6-0.8"/>
+          </g>
+        </svg>
+                </span>
+                </button>
+
+                <button
+                        type="button"
+                        class="theme-toggle"
+                        id="theme-toggle"
+                        aria-pressed="true"
+                        aria-label="Switch to light mode"
+                        title="Light mode"
+                >
+             <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </span>
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </span>
+
+                </button>
+
+                <button
+                        type="button"
+                        class="menu-toggle"
+                        id="menu-toggle"
+                        aria-expanded="false"
+                        aria-controls="site-nav-links"
+                        aria-label="Open navigation"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- Page 1: Cover -->
+    <a class="cover-logo" href="https://www.instagram.com/windsongmusic34/" target="_blank" rel="noopener noreferrer" data-i18n="aria.windsongInstagram" data-i18n-attr="aria-label" aria-label="Windsong on Instagram">
+        <img src="images/windsong-banner.png" alt="" />
+    </a>
+    <div class="cover-nav">
+        <div class="site-nav__links" id="site-nav-links">
+            <a href="index.html">home</a>
+            <a href="band.html">bios</a>
+            <a href="songs.html">music</a>
+            <a href="documentary.html">film</a>
+        </div>
+        <div class="cover-social">
+            <a class="cover-social__link" href="https://open.spotify.com/album/6bLlrBLgRewFgxY5DQWs8i?si=6eO_D-0LQ72oMs8NbchvBQ" target="_blank" rel="noopener noreferrer" data-i18n="aria.spotify" data-i18n-attr="aria-label" aria-label="Windsong on Spotify">
+                <img src="images/spotify.png" alt="" width="70" height="70" decoding="async" />
+            </a>
+            <a class="cover-social__link" href="https://music.apple.com/us/album/v1/6768804584" target="_blank" rel="noopener noreferrer" data-i18n="aria.appleMusic" data-i18n-attr="aria-label" aria-label="Windsong on Apple Music">
+                <img src="images/apple.png" alt="" width="70" height="70" decoding="async" />
+            </a>
+            <a class="cover-social__link" href="https://www.instagram.com/windsongmusic34/" target="_blank" rel="noopener noreferrer" data-i18n="aria.windsongInstagram" data-i18n-attr="aria-label" aria-label="Windsong on Instagram">
+                <img src="images/instagram.png" alt="" width="70" height="70" decoding="async" />
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Page 3: Track list stories (part 1) -->
+<section class="page">
+    <div class="tracks-page-logo">
+        <a href="https://open.spotify.com/album/6bLlrBLgRewFgxY5DQWs8i?si=6eO_D-0LQ72oMs8NbchvBQ" target="_blank" rel="noopener noreferrer" data-i18n="aria.humanConditionsSpotify" data-i18n-attr="aria-label" aria-label="Human Conditions on Spotify">
+            <img src="images/windsong_logo_black_album.png" data-i18n="alt.albumLogo" data-i18n-attr="alt" alt="Windsong — Human Conditions" />
+        </a>
+    </div>
+    <div class="tracks-layout">
+        <div class="track-photos">
+
+        </div>
+        <div class="tracks-text">
+            <h2 class="tracks-heading" data-i18n="tracks.heading">Track List Stories</h2>
+
+            <div class="track">
+                <h3 data-i18n="track.sunrise.title">Sunrise-</h3>
+                <p data-i18n="track.sunrise.body">My parents were raised in an ashram, a spiritual community in southern india, founded by Sri Aurobindo and Mira Alfassa, also known as The Mother. They wrote volumes on the nature of man, evolution of consciousness, integral yoga, and spiritual life. One of the seminal works is called 'The Life Divine' which I've always been drawn to. My folks later immigrated to Chicago, where my brother and I were born and raised. I was given the name Uday, by the ashram's caretaker, which in Sanskrit translates to sunrise.</p>
+            </div>
+
+            <div class="track">
+                <h3 data-i18n="track.weAreThrough.title">We Are Through-</h3>
+                <p data-i18n="track.weAreThrough.body">I was diagnosed with bipolar II twenty years ago, and later developed a substance use disorder. After treatments and relapses, I have tried and failed my way to a clean healthy daily life. They are both progressive illnesses, that is, things tend to get worse over time — if you don't get better first. I came to characterize my addiction as the manifestation of a toxic relationship. Starts good, ends bad, and ultimately a radioactive way to cope. I can't quite compare the experience to anything else — the chaos and destruction of being brought to your knees by a drug. I wrote this to remind myself of the nature of the beast, who patiently waits at the door.</p>
+            </div>
+
+            <div class="track">
+                <h3 data-i18n="track.free.title">Free-</h3>
+                <p data-i18n="track.free.body">My many experiences with depression have more in common than apart, characterized largely by an absolute eradication of my own will — to move, think, feel, or consider a future. That which you need most in the moment, is exactly what is not available. There is no ability to recognize a way forward, much less any point. I have noticed however, this too does pass. And what lies on the other side, once the pain becomes your ally, may actually be worth the walk.</p>
+            </div>
+
+            <div class="track">
+                <h3 data-i18n="track.awake.title">Awake-</h3>
+                <p data-i18n="track.awake.body">It is said the final step of recovery is a spiritual awakening. I am looking forward to that moment. Truly on the edge of my seat.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page 4: Track list stories (part 2) -->
+<section class="page">
+    <div class="tracks-layout">
+        <div class="track-photos">
+            <img src="images/uday-guitar.jpg" data-i18n="alt.udayGuitar" data-i18n-attr="alt" alt="Uday playing guitar" />
+            <img src="images/brandon-recording.jpg" data-i18n="alt.brandonRecording" data-i18n-attr="alt" alt="Brandon recording vocals" />
+        </div>
+        <div class="tracks-text">
+            <div class="track">
+                <h3 data-i18n="track.hardWayHome.title">Hard Way Home-</h3>
+                <p data-i18n="track.hardWayHome.body">I met Baker in treatment, we happened to cross over on both of our stays. He suffered intense early age trauma, and grew up in an environment of drug abuse. Baker regularly cut school in favor of the skate park, and on certain occasions, a jail cell. After a long journey, he is living a clean life for the first time. He likes to write poetry as his creative outlet, and provided these lyrics for me, as a record of his struggle.</p>
+            </div>
+
+            <div class="track">
+                <h3 data-i18n="track.lindaLee.title">Linda Lee-</h3>
+                <p data-i18n="track.lindaLee.body">My first experience with tragedy and loss was in high school. One of my best friends was out driving late at night with his mother, a vibrant and caring single mom of two. They got into a car crash, which she did not survive. It is one of those moments that still occurs in slow motion for me, with profound emotion, and gut wrenching to this day. I wrote the song when I was 18. It is dedicated to the incredibly loving memory of Linda Lee Lawrence.</p>
+            </div>
+
+            <div class="track">
+                <h3 data-i18n="track.closeYourEyes.title">Close Your Eyes-</h3>
+                <p data-i18n="track.closeYourEyes.body">I have a tight group of friends from growing up together. One of them is named Scott, a loving father of three, and an avid enthusiast of the Chicago Cubs and early 90's hip hop. After a high conflict divorce, job loss and subsequent battles with intense depression, Scott took his life. It was Thanksgiving day, just hours after we all were together with him. It is a very painful pill to swallow, in part, as it happened on our watch. The song is called 'close your eyes' — I would like to say it's a celebration of Scott, but in truth, it is an expression of pain and absence.</p>
+            </div>
+
+            <div class="track">
+                <h3 data-i18n="track.hisLoveIsKind.title">His Love is Kind-</h3>
+                <p data-i18n="track.hisLoveIsKind.body">My best friend from childhood is named Linda. We grew up together on the same street, would constantly walk around the mall, and talk on the phone even after we'd just been hanging out doing nothing. As we moved through high school and college, and she formed relationships with guys that I felt to be under-qualified for the position, she knew where I stood. Then she met Zac, her now husband, and the father of their two boys. He and I always got along great, several shared interests, particularly we both love Linda. Zac has always been kind, friendly, authentic; and extremely hospitable. We wrote this one for him. He, even while battling ALS, is the most courageous guy I know.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="i18n.js" defer></script>
+<footer class="site-footer"> <div>©2026 Windsong Music LLC. All rights reserved</div> <a href="mailto:uday@windsong.music">uday@windsong.music</a> </footer>
+</body>
+</html>

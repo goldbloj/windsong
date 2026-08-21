@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        (function () {
+            var k = 'windsong-theme';
+            var t = localStorage.getItem(k);
+            if (t === 'dark' || t === 'light') {
+                document.documentElement.setAttribute('data-theme', t);
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+        (function () {
+            var k = 'windsong-lang';
+            var t = localStorage.getItem(k);
+            if (t === 'hi' || t === 'en') {
+                document.documentElement.setAttribute('data-lang', t);
+                document.documentElement.setAttribute('lang', t === 'hi' ? 'hi' : 'en');
+            } else {
+                document.documentElement.setAttribute('data-lang', 'en');
+                document.documentElement.setAttribute('lang', 'en');
+            }
+        })();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J59MNLBX5Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-J59MNLBX5Y');
+    </script>
+
+    <meta property="og:title" content="Windsong - Human Conditions" />
+    <meta property="og:image" content="https://windsong.music/images/windsong-logo-bold-rev.png" />
+    <meta property="og:description" content="A feature documentary film of the recording sessions, song backstories, and interview footage is currently in post production — with an August 2026 release date. The film was produced by Joseph Garner (Joker, Joker 2) and directed by Meliek Gaynor." />
+    <meta property="og:url" content="https://windsong.music" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Windsong" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Windsong - Human Conditions" />
+
+    <title>Windsong — Human Conditions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+
+        <button
+                type="button"
+                class="lang-toggle"
+                id="lang-toggle"
+                aria-label="Switch to Hindi"
+                title="Switch to Hindi"
+        >
+      <span class="lang-toggle__flag lang-toggle__flag--en" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10" width="18" height="10" focusable="false">
+          <rect width="19" height="10" fill="#b22234"/>
+          <path fill="#fff" d="M0 0.77h19V1.9H0zm0 2.26h19v1.13H0zm0 2.26h19v1.13H0zm0 2.26h19v1.13H0zm0 2.26h19V10H0z"/>
+          <rect width="7.6" height="5.38" fill="#3c3b6e"/>
+        </svg>
+      </span>
+
+            <span class="lang-toggle__flag lang-toggle__flag--hi" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" width="18" height="12" focusable="false">
+          <rect width="9" height="2" fill="#FF9933"/>
+          <rect y="2" width="9" height="2" fill="#fff"/>
+          <rect y="4" width="9" height="2" fill="#138808"/>
+          <circle cx="4.5" cy="3" r="0.55" fill="none" stroke="#000080" stroke-width="0.08"/>
+          <g stroke="#000080" stroke-width="0.06" fill="none">
+            <path d="M4.5 2.45v1.1M4.05 3h0.9M4.2 2.6l0.6 0.8M4.8 2.6l-0.6 0.8M4.2 3.4l0.6-0.8M4.8 3.4l-0.6-0.8"/>
+          </g>
+        </svg>
+      </span>
+        </button>
+
+        <div class="site-nav__links" id="site-nav-links">
+            <a href="index.html">Home</a>
+            <a href="band.html">Band</a>
+            <a href="songs.html">Songs</a>
+            <a href="documentary.html">Documentary</a>
+            <a href="merch.html">Merch</a>
+        </div>
+
+        <div class="site-nav__right">
+            <button
+                    type="button"
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-pressed="true"
+                    aria-label="Switch to light mode"
+                    title="Light mode"
+            >
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </span>
+
+                <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </span>
+            </button>
+
+            <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-expanded="false"
+                    aria-controls="site-nav-links"
+                    aria-label="Open navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+    </nav>
+</header>
+
+<!-- Page 1: Cover -->
+<section class="page cover">
+    <a class="cover-logo" href="https://www.instagram.com/windsongmusic34/" target="_blank" rel="noopener noreferrer" data-i18n="aria.windsongInstagram" data-i18n-attr="aria-label" aria-label="Windsong on Instagram">
+        <img src="images/windsong-banner.png" alt="" />
+    </a>
+    <div class="cover-social">
+        <a class="cover-social__link" href="https://open.spotify.com/album/6bLlrBLgRewFgxY5DQWs8i?si=6eO_D-0LQ72oMs8NbchvBQ" target="_blank" rel="noopener noreferrer" data-i18n="aria.spotify" data-i18n-attr="aria-label" aria-label="Windsong on Spotify">
+            <img src="images/spotify.png" alt="" width="70" height="70" decoding="async" />
+        </a>
+        <a class="cover-social__link" href="https://music.apple.com/us/album/v1/6768804584" target="_blank" rel="noopener noreferrer" data-i18n="aria.appleMusic" data-i18n-attr="aria-label" aria-label="Windsong on Apple Music">
+            <img src="images/apple.png" alt="" width="70" height="70" decoding="async" />
+        </a>
+        <a class="cover-social__link" href="https://www.instagram.com/windsongmusic34/" target="_blank" rel="noopener noreferrer" data-i18n="aria.windsongInstagram" data-i18n-attr="aria-label" aria-label="Windsong on Instagram">
+            <img src="images/instagram.png" alt="" width="70" height="70" decoding="async" />
+        </a>
+    </div>
+</section>
+
+<!-- Page 6: Contact -->
+<section class="page page-contact">
+    <div class="contact-layout">
+        <div class="contact-photos">
+            <img src="images/uday-with-friend.jpg" data-i18n="alt.udayFriend" data-i18n-attr="alt" alt="Uday with friend" />
+            <img src="images/uday-smiling.jpg" data-i18n="alt.udaySmiling" data-i18n-attr="alt" alt="Uday smiling" />
+        </div>
+        <div class="contact-right">
+            <a href="https://www.instagram.com/windsongmusic34/" target="_blank" rel="noopener noreferrer" data-i18n="aria.windsongInstagram" data-i18n-attr="aria-label" aria-label="Windsong on Instagram">
+                <img class="big-logo" src="images/windsong-logo-blue-bkgd.png" data-i18n="alt.windsongWordmark" data-i18n-attr="alt" alt="Windsong" />
+            </a>
+            <div class="contact-info">
+                <div><a href="mailto:uday@windsong.music">uday@windsong.music</a></div>
+                <div>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="i18n.js" defer></script>
+<footer class="site-footer"> <div>by Windsong Music LLC, all rights reserved</div> <a href="mailto:uday@windsong.music">uday@windsong.music</a> </footer>
+</body>
