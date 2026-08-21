@@ -1,9 +1,9 @@
 :root {
-  --ink: #1a1a1a;
-  --muted: #444;
-  --rule: #000;
-  --bg: #ffffff;
-  --page-border: #eee;
+  --ink: #000000;
+  --muted: #000000;
+  --rule: #000000;
+  --bg: #ECECEB;
+  --page-border: #000000;
   --photo-bg: #eee;
   --logo-box-bg: #fff;
   --page-max: 1100px;
@@ -12,13 +12,13 @@
 
 /* Dark: black field, light type; logos stay in white boxes like the source art */
 html[data-theme="dark"] {
-  color-scheme: dark;
-  --ink: #f0f0f0;
-  --muted: #b8b8b8;
-  --rule: #2a2a2a;
-  --bg: #000000;
-  --page-border: #2a2a2a;
-  --photo-bg: #1a1a1a;
+  color-scheme: light;
+  --ink: #000000;
+  --muted: #000000;
+  --rule: #000000;
+  --bg: #ECECEB;
+  --page-border: #000000;
+  --photo-bg: #eee;
 }
 
 /* Logos on white “cards” so they read on black like the source files */
@@ -33,107 +33,298 @@ html[data-theme="dark"] .contact-right img.big-logo {
 
 * { box-sizing: border-box; }
 
-/* Top-left language: one circular toggle, flag = active language */
-.lang-toggle {
-  position: fixed;
-  top: max(12px, env(safe-area-inset-top, 0px));
-  left: max(12px, env(safe-area-inset-left, 0px));
+/* =========================================================
+   SITE NAVIGATION
+   ========================================================= */
+
+.site-header {
+  position: absolute;
   z-index: 1000;
-  margin: 0;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: auto;
+  background: transparent;
+  border-right: none;
+}
+
+.site-nav {
+  width: 100%;
+  height: auto;
   padding: 0;
+}
+
+/* Vertical page navigation */
+
+.site-nav__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.site-nav__links a {
+  width: 100%;
+  padding: 7px 0;
+
+  color: var(--ink);
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition:
+          opacity 0.15s ease,
+          font-weight 0.15s ease;
+}
+
+.site-nav__links a:hover {
+  opacity: 0.55;
+}
+
+.site-nav__links a.is-active {
+  font-weight: 700;
+}
+
+/* Language / theme controls */
+
+.site-nav__controls {
+  margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Right-side controls */
+
+/*.site-nav__right {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: flex-end;*/
+/*  gap: 8px;*/
+/*}*/
+
+/* Language */
+
+.lang-toggle, .theme-toggle {
+  position: static;
+
   width: 36px;
   height: 36px;
+  margin: 0;
+  padding: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   line-height: 0;
   cursor: pointer;
+
   color: var(--ink);
-  background: var(--bg);
+  background: transparent;
   border: 1px solid var(--page-border);
   border-radius: 50%;
+
   -webkit-tap-highlight-color: transparent;
 }
+
+.theme-toggle {
+  pointer-events: none;
+  cursor: default;
+  opacity: 1;
+}
+
 .lang-toggle__flag {
   display: none;
   align-items: center;
   justify-content: center;
   pointer-events: none;
 }
+
 .lang-toggle__flag svg {
   display: block;
 }
+
 html[data-lang="en"] .lang-toggle__flag--en,
 html[data-lang="hi"] .lang-toggle__flag--hi {
   display: flex;
 }
-.lang-toggle:hover {
+
+.lang-toggle:hover, .theme-toggle:hover {
   border-color: var(--rule);
 }
-.lang-toggle:focus {
+
+.lang-toggle:focus, .theme-toggle:focus {
   outline: none;
 }
-.lang-toggle:focus-visible {
+
+.lang-toggle:focus-visible, .theme-toggle:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
-html[data-theme="dark"] .lang-toggle {
-  background: #111;
-  border-color: #3a3a3a;
-}
-html[data-theme="dark"] .lang-toggle:hover {
-  border-color: #666;
-}
-html[data-theme="dark"] .lang-toggle:focus-visible {
-  outline-color: #ccc;
-}
 
-/* Top-right light / dark control */
-.theme-toggle {
-  position: fixed;
-  top: max(12px, env(safe-area-inset-top, 0px));
-  right: max(12px, env(safe-area-inset-right, 0px));
-  z-index: 1000;
-  margin: 0;
-  padding: 0;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
-  cursor: pointer;
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--page-border);
-  border-radius: 50%;
-  -webkit-tap-highlight-color: transparent;
-}
+/* Theme */
+
 .theme-toggle__icon {
   display: none;
   pointer-events: none;
 }
+
 .theme-toggle__icon svg {
   display: block;
   vertical-align: middle;
 }
+
 html[data-theme="light"] .theme-toggle__icon--moon,
 html[data-theme="dark"] .theme-toggle__icon--sun {
   display: block;
 }
-.theme-toggle:hover {
-  border-color: var(--rule);
+
+/* Hamburger */
+
+.menu-toggle {
+  display: none;
+
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 7px 6px;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--page-border);
+  border-radius: 50%;
+
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
-.theme-toggle:focus {
+
+.menu-toggle span {
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: currentColor;
+  transition:
+          transform 0.2s ease,
+          opacity 0.2s ease;
+}
+
+.menu-toggle:focus {
+  outline: none;
+}
+
+.menu-toggle:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
-html[data-theme="dark"] .theme-toggle {
-  background: #111;
-  border-color: #3a3a3a;
+
+/* Hamburger → X */
+
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
 }
-html[data-theme="dark"] .theme-toggle:hover {
-  border-color: #666;
+
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* =========================================================
+   BAND BIOS
+   ========================================================= */
+
+.page-bios {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.bio {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bio-person {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+
+  padding: 42px 0;
+  border-bottom: 1px solid var(--page-border);
+}
+
+.bio-person:first-child {
+  padding-top: 10px;
+}
+
+.bio-person:last-child {
+  border-bottom: none;
+}
+
+/* Portrait */
+
+.bio-person__image {
+  width: 190px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--photo-bg);
+}
+
+.bio-person__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  filter: grayscale(100%);
+  transition:
+          filter 0.25s ease,
+          transform 0.35s ease;
+}
+
+.bio-person:hover .bio-person__image img {
+  filter: grayscale(0%);
+  transform: scale(1.025);
+}
+
+/* Text */
+
+.bio-person__text {
+  min-width: 0;
+}
+
+.bio-person__name {
+  margin: 0 0 12px 0;
+
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.bio-person__text p {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
 }
 
 html, body {
@@ -158,7 +349,7 @@ html[data-lang="hi"] body {
 }
 
 .page-film {
-  border-top: 1px solid var(--page-border);
+  border-top: none;
 }
 
 .page-contact {
@@ -179,8 +370,8 @@ html[data-lang="hi"] body {
 .cover-logo {
   display: block;
   line-height: 0;
-  max-width: 560px;
-  width: 70%;
+  max-width: 800px;
+  width: 85%;
   border-radius: 8px;
   -webkit-tap-highlight-color: transparent;
   transition: opacity 0.15s ease;
@@ -202,6 +393,7 @@ html[data-lang="hi"] body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-top: -12px;
 }
 .cover-social__link {
   display: flex;
@@ -231,13 +423,9 @@ html[data-theme="dark"] .cover-social__link {
 
 /* ---------- Page 2: Band bios ---------- */
 .bio p {
-  margin: 0 0 18px 0;
+  margin: 0;
 }
-.bio strong.name {
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
+
 .bio em.band-name {
   font-style: italic;
   font-weight: 700;
@@ -344,6 +532,10 @@ section:has(.tracks-page-logo) + section .track:first-of-type {
   font-weight: 700;
 }
 
+.film-photo > img {
+  margin-top: 40px;
+}
+
 /* ---------- Page 6: Contact ---------- */
 .contact-layout {
   display: grid;
@@ -383,80 +575,766 @@ section:has(.tracks-page-logo) + section .track:first-of-type {
   text-decoration: underline;
 }
 
+/* ---------- Site Footer ---------- */
+
+.site-footer {
+  max-width: var(--page-max);
+  margin: 60px auto 0;
+  padding: 28px 28px 36px;
+  border-top: 1px solid var(--page-border);
+
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+
+}
+
+.site-footer a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-footer a {
+  text-decoration: underline;
+}
+
+html[data-theme="dark"] .site-footer {
+  border-top-color: #000000;
+}
+
+/* Desktop content offset for left navigation rail */
+
+@media (min-width: 821px) {
+
+  .cover {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    gap: 0;
+  }
+
+  /* Controls float above banner */
+  .site-header {
+    position: absolute;
+    z-index: 1000;
+
+    top: 12px;
+    left: 0;
+
+    width: 100%;
+    height: 36px;
+
+    background: transparent;
+    border: 0;
+    pointer-events: none;
+  }
+
+  .site-nav {
+    position: relative;
+    width: 100%;
+    height: 36px;
+    padding: 0;
+  }
+
+  .site-nav__controls {
+    margin: 0;
+  }
+
+  /* LEFT edge of banner */
+  .lang-toggle {
+    position: absolute;
+    top: 0;
+    left: 7.5%;
+
+    pointer-events: auto;
+  }
+
+  /* RIGHT edge of banner */
+  .theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 7.5%;
+
+    pointer-events: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Actual navigation is now AFTER the actual banner */
+
+  .cover-logo {
+    width: 85%;
+    max-width: 800px;
+    margin: 0;
+  }
+  .cover-nav {
+    position: relative;
+
+    width: 85%;
+    max-width: 800px;
+
+    align-self: center;
+
+    margin-top: 14px;
+    padding: 0;
+
+    display: flex;
+    align-items: flex-start;
+  }
+
+
+  /* Vertical navigation column */
+  .cover-nav .site-nav__links {
+    position: fixed;
+    z-index: 1001;
+
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    width: max-content;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .cover-nav .site-nav__links a {
+    width: auto;
+    padding: 7px 0;
+
+    color: var(--ink);
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+  }
+
+  /*
+   * Social icons sit to the RIGHT of the navigation,
+   * aligned with the HOME line.
+   */
+  .cover-social {
+    position: static;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.25rem;
+
+    margin: 0;
+    padding: 0;
+
+    height: 48px;
+
+    width: calc(100% + 300px);
+  }
+
+  .cover-social__link img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .bio {
+    padding-top: 40px;
+  }
+
+  .page-film {
+    width: 85%;
+    max-width: 800px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .film-layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .film-photo img {
+    width: 240px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .film-copy {
+    margin-top: 180px;
+  }
+}
+
 /* ---------- Responsive ---------- */
+
 @media (max-width: 820px) {
-  .page { 
-    padding: 0px 28px; 
+
+  .site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: var(--bg);
+    border-right: none;
+    border-bottom: 1px solid var(--page-border);
+  }
+
+  .site-nav {
+    position: relative;
+
+    width: 100%;
+    min-height: 58px;
+    height: auto;
+
+    margin: 0;
+    padding:
+            0
+            max(16px, env(safe-area-inset-right, 0px))
+            0
+            max(16px, env(safe-area-inset-left, 0px));
+
+    display: grid;
+    grid-template-columns: 36px 1fr 80px;
+    align-items: center;
+  }
+
+  .site-nav__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 0;
+
+    padding: 18px 20px 28px;
+
+    background: var(--bg);
+    border-bottom: 1px solid var(--page-border);
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+
+    pointer-events: none;
+
+    transition:
+            opacity 0.18s ease,
+            transform 0.18s ease,
+            visibility 0.18s ease;
+  }
+
+  .site-nav__links.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .site-nav__links a {
+    width: 100%;
+    padding: 13px 20px;
+
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .site-nav__controls {
+    grid-column: 3;
+
+    margin-top: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+  }
+
+  .lang-toggle {
+    grid-column: 1;
+  }
+
+  .site-nav__right {
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+  }
+
+  .theme-toggle {
+    position: static;
+    transform: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+    position: static;
+
+    width: 36px;
+    height: 36px;
+    margin: 0;
+    padding: 7px 6px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--page-border);
+    border-radius: 50%;
+
+    cursor: pointer;
+  }
+
+  body {
+    padding-left: 0;
+  }
+
+  /* Existing page rules */
+
+  .page {
+    padding: 0 28px;
     padding-bottom: 0;
   }
-  /* Cover: drop min-height + vertical centering so the logo isn’t floating in empty space */
+
   .cover {
     min-height: 0;
     align-items: center;
     justify-content: flex-start;
-    padding: 60px 28px 0;
+    padding: 32px 28px 0;
     gap: 1rem;
   }
+
   .cover-logo {
     width: 85%;
     margin-bottom: 0;
   }
-  /* First content block after cover: was 60px top + cover’s bottom padding — tighten */
+
   .cover + .page {
     padding-top: 28px;
   }
-  /* Track list: desktop uses 180px top offset to line photos up with copy — on mobile it stacks and reads as a hole under the bold logo */
+
   .track-photos {
     margin-top: 0;
   }
+
   .tracks-page-logo {
     margin-bottom: 16px;
   }
+
   .tracks-page-logo img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0;
   }
-  /* Track list part 1: trim top (under bio) and bottom before part 2 */
+
   section.page:has(.tracks-page-logo) {
     padding-top: 28px;
     padding-bottom: 24px;
   }
-  /* Part 1 → part 2: avoid 60px+60px between “Awake” and the next photo row */
+
   section.page:has(.tracks-page-logo) + section.page {
     padding-top: 20px;
   }
-  section.page:has(.tracks-page-logo) .tracks-text .track:last-child {
+
+  section.page:has(.tracks-page-logo)
+  .tracks-text
+  .track:last-child {
     margin-bottom: 0;
   }
+
   .tracks-layout,
   .film-layout,
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  /* Tracks only: a bit tighter between photo row and following copy than film/contact */
+
   .tracks-layout {
     gap: 16px;
   }
-  /* Film: desktop offsets copy to align with grid — remove on narrow screens */
+
   .film-copy {
     margin-top: 0;
   }
+
   .film-logo img,
   .contact-right img.big-logo {
     max-width: 260px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .track-photos,
   .contact-photos {
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   .track-photos img,
   .contact-photos img {
     width: calc(50% - 12px);
   }
+
+  .site-footer {
+    margin-top: 40px;
+    padding: 24px 28px 30px;
+    font-size: 12px;
+  }
+
+  .page-bios {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .bio {
+    padding-top: 20px;
+  }
+
+  .bio-person {
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 24px;
+
+    padding: 28px 0;
+    align-items: center;
+  }
+
+  .bio-person:first-child {
+    padding-top: 0;
+  }
+
+  .bio-person__image {
+    width: 110px;
+  }
+
+  .bio-person__name {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .bio-person__text p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .film-photo img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .film-photo .film-photo__henna,
+  .film-copy .film-photo__henna {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* =========================================================
+   FINAL MOBILE FIXES
+   Desktop is intentionally untouched.
+   ========================================================= */
+
+  @media (max-width: 820px) {
+
+    /* ---------- Mobile header ---------- */
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 58px;
+      z-index: 10000;
+    }
+
+    .site-nav {
+      width: 100%;
+      height: 58px;
+      padding: 0 16px;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .site-nav__controls {
+      position: static;
+      width: 100%;
+      height: 58px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      margin: 0;
+      padding: 0;
+      gap: 8px;
+    }
+
+    .lang-toggle {
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
+      margin: 0;
+    }
+
+    .theme-toggle {
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
+      margin: 0 0 0 auto;
+    }
+
+    .menu-toggle {
+      display: flex;
+
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
+      margin: 0;
+    }
+
+
+    /* ---------- Mobile Windsong banner ---------- */
+
+    .cover {
+      position: relative;
+
+      min-height: 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+
+      /*
+       * Explicit space below the mobile header.
+       * This prevents the Windsong banner from sitting
+       * underneath / getting clipped by the header.
+       */
+      padding-top: 82px;
+      padding-right: 28px;
+      padding-bottom: 0;
+      padding-left: 28px;
+
+      gap: 0;
+    }
+
+    .cover-logo {
+      position: relative;
+
+      display: block;
+      width: 100%;
+      max-width: 800px;
+
+      margin: 0;
+      padding: 0;
+
+      line-height: 0;
+    }
+
+    .cover-logo img {
+      display: block;
+
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* ---------- Mobile navigation ---------- */
+
+    /*
+     * The navigation links are physically located in
+     * .cover-nav, NOT inside .site-header.
+     *
+     * Keep them completely out of the document flow.
+     * They appear ONLY when .is-open is added.
+     */
+
+    .cover-nav .site-nav__links {
+      position: fixed;
+
+      top: 58px;
+      left: 0;
+      right: 0;
+
+      width: 100%;
+      height: auto;
+
+      display: none;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+
+      margin: 0;
+      padding: 18px 20px 28px;
+
+      background: var(--bg);
+      border-bottom: 1px solid var(--page-border);
+
+      z-index: 9999;
+    }
+
+    .cover-nav .site-nav__links.is-open {
+      display: flex;
+    }
+
+    .cover-nav .site-nav__links a {
+      display: block;
+
+      width: 100%;
+      padding: 13px 20px;
+
+      text-align: center;
+
+      font-size: 15px;
+    }
+
+
+    /* ---------- Mobile cover/social area ---------- */
+
+    .cover-nav {
+      position: static;
+
+      width: 100%;
+      margin: 16px 0 0;
+      padding: 0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cover-social {
+      position: static;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 1.25rem;
+
+      width: 100%;
+      height: auto;
+
+      margin: 16px 0 0;
+      padding: 0;
+    }
+
+    .cover-social__link img {
+      width: 48px;
+      height: 48px;
+    }
+
+
+    /* ---------- Prevent horizontal mobile overflow ---------- */
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+
+  /* -----------------------------------------
+     BANNER
+     ----------------------------------------- */
+
+  .cover-logo {
+    width: 100%;
+    max-width: none;
+  }
+
+
+  /* -----------------------------------------
+     COPY
+     The .page is INSIDE .cover, so do not
+     add another 28px of horizontal padding.
+     ----------------------------------------- */
+
+  .cover > .page {
+    width: 100%;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cover > .page .bio {
+    width: 100%;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  /* -----------------------------------------
+     FOOTER
+     The footer is ALSO INSIDE .cover.
+     Therefore it should use the exact same
+     content width as the banner.
+     ----------------------------------------- */
+
+  .cover > .site-footer {
+    width: 100%;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    border-left: 0;
+    border-right: 0;
+  }
+
+}
+
+.film-photo__henna {
+  display: block;
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 28px;
 }
