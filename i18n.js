@@ -94,15 +94,27 @@
     },
     'bio.uday': {
       en:
-        '<strong class="name">UDAY SEHGAL</strong> is an entrepreneur with a background in hotels, film and music. He was raised in Chicago, IL and grew up playing guitar in bands through high school and college. He began writing songs at 18 years old. Uday studied mathematics at Northwestern University.',
+        '<strong class="name">UDAY SEHGAL</strong> is an entrepreneur with a background in hotels, film and music. He was raised in Chicago, IL and grew up playing guitar in bands through high school and college. He began writing songs at 18 years old.',
       hi:
         '<strong class="name">UDAY SEHGAL</strong> उद्यमी हैं; होटल, फ़िल्म और संगीत में उनका पृष्ठभूमि अनुभव है। उनका पालन-पोषण शिकागो, इलिनॉय में हुआ और हाई स्कूल व कॉलेज के दौरान उन्होंने बैंडों में गिटार बजाया। 18 साल की उम्र में उन्होंने गाने लिखने शुरू किए। उदय ने नॉर्थवेस्टर्न विश्वविद्यालय में गणित का अध्ययन किया।',
     },
     'bio.brandon': {
       en:
-        '<strong class="name">BRANDON ALEXANDER</strong> grew up in Nashville, TN. He was first exposed to music through church — playing piano, organ, and singing in the choir. Brandon went on to study at Fisk University, and was a member of the prestigious Fisk Jubilee Singers. He is the grateful husband of his loving wife, and proud father of their 4-year old daughter.',
+        '<strong class="name">BRANDON ALEXANDER</strong> grew up in Nashville, TN. He was first exposed to music through church — playing piano, organ, and singing in the choir. Brandon went on to study at Fisk University, and was a member of the prestigious Fisk Jubilee Singers.',
       hi:
         '<strong class="name">BRANDON ALEXANDER</strong> का बचपन नैशविले, टेनेसी में बीता। संगीत से पहली बार चर्च में मुठभेड़ हुई — पियानो, ऑर्गन और गायक दल में गाना। ब्रैंडन ने फिस्क विश्वविद्यालय में पढ़ाई की और प्रतिष्ठित फिस्क जुबिली सिंगर्स के सदस्य रहे। वे अपनी प्यारी पत्नी के कृतज्ञ पति हैं और अपनी 4 साल की बेटी के गर्वित पिता हैं।',
+    },
+    'bio.savanna': {
+      en:
+          '<strong class="name">SAVANNA SMITH</strong> is a classically trained vocalist with extensive choir and ensemble experience.',
+      hi:
+          '<strong class="name">SAVANNA SMITH</strong> वह शास्त्रीय संगीत में प्रशिक्षित गायिका हैं और उन्हें गायन मंडली और समूह गायन का व्यापक अनुभव है।',
+    },
+    'bio.lacy': {
+      en:
+          '<strong class="name">LACY ROSTYAK</strong> is a conservatory-trained concert violinist featuring collaborations alongside Shania Twain, Deadmau5 and Dua Lipa.',
+      hi:
+          '<strong class="name">LACY ROSTYAK</strong> कंज़र्वेटरी-प्रशिक्षित कॉन्सर्ट वायलिनिस्ट हैं; शेनिया ट्वेन और डेडमाउ5 के साथ रिकॉर्डिंग का अनुभव है।',
     },
     'bio.john': {
       en:
@@ -115,18 +127,6 @@
         '<strong class="name">JOE TRAVERS</strong> plays drums and won a Grammy for live performance with the Zappa Band. He also toured with Joe Satriani and Duran Duran.',
       hi:
         '<strong class="name">JOE TRAVERS</strong> ड्रम बजाते हैं और ज़ैपा बैंड के साथ लाइव प्रदर्शन के लिए ग्रैमी जीत चुके हैं। उन्होंने जो सैट्रियानी और ड्यूरन ड्यूरन के साथ भी टूर किया है।',
-    },
-    'bio.lacy': {
-      en:
-        '<strong class="name">LACY ROSTYAK</strong> is a conservatory-trained concert violinist with recording experience alongside Shania Twain and Deadmau5.',
-      hi:
-        '<strong class="name">LACY ROSTYAK</strong> कंज़र्वेटरी-प्रशिक्षित कॉन्सर्ट वायलिनिस्ट हैं; शेनिया ट्वेन और डेडमाउ5 के साथ रिकॉर्डिंग का अनुभव है।',
-    },
-    'bio.ravi': {
-      en:
-        '<strong class="name">RAVI RAO</strong> is a Chicago-based blues guitar player heavily influenced by Stevie Ray Vaughan and Jimi Hendrix.',
-      hi:
-        '<strong class="name">RAVI RAO</strong> शिकागो स्थित ब्लूज़ गिटारवादक हैं; स्टीवी रे वॉन और जिमी हेंड्रिक्स से गहरा प्रभाव।',
     },
     'bio.jeff': {
       en:
@@ -196,7 +196,7 @@
     },
     'film.intro': {
       en:
-        'A feature documentary film of the recording sessions, song backstories, and interview footage is currently in post production — with an August 2026 release date. The film was produced by CLJ Films and directed by Joseph Garner (Joker, Joker 2).',
+        'A feature documentary film of the recording sessions, song backstories, and interview footage is currently in post production — with a November 2026 release date. The film was produced by Joseph Garner (Joker, Joker 2) and directed by Meliek Gaynor.',
       hi:
         'रिकॉर्डिंग सत्रों, गानों की पृष्ठभूमि और इंटरव्यू फुटेज पर आधारित एक फ़ीचर डॉक्यूमेंटरी फ़िल्म अभी पोस्ट-प्रोडक्शन में है—अगस्त 2026 में रिलीज़ की तारीख है। फ़िल्म का निर्माण CLJ Films ने किया है और निर्देशन जोसेफ़ गार्नर (Joker, Joker 2) का है।',
     },
@@ -311,3 +311,33 @@
     init();
   }
 })();
+
+
+
+
+
+
+const menuToggle = document.getElementById("menu-toggle");
+const siteNavLinks = document.getElementById("site-nav-links");
+
+if (menuToggle && siteNavLinks) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.classList.toggle("is-open");
+
+    siteNavLinks.classList.toggle("is-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+    );
+  });
+
+  siteNavLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menuToggle.classList.remove("is-open");
+      siteNavLinks.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+    });
+  });
+}
