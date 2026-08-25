@@ -88,7 +88,7 @@
     },
     'bio.intro': {
       en:
-        '<em class="band-name">WINDSONG</em> is a Nashville-based indie band with roots in rock, blues, gospel, and classical music. Their first album “Human Conditions” was released in 2026. Uday Sehgal and Brandon Alexander — both addicts in recovery — founded the group after becoming friends at treatment in Tennessee. In an effort to heal, they began playing music together every night on the back patio of Windsong, the rehab house where they met and roomed together.',
+        '<em class="band-name">WINDSONG</em> is a QNashville-based indie folk band with roots in rock, blues and gospel music. Their first album “Human Conditions” was released in 2026. Uday Sehgal and Brandon Alexander — both addicts in recovery — founded the group after becoming friends at treatment in Tennessee. In an effort to heal, they began playing music together every night on the back patio of Windsong, the rehab house where they met and roomed together.',
       hi:
         '<em class="band-name">WINDSONG</em> नैशविले स्थित एक इंडी बैंड है जिसकी जड़ें रॉक, ब्लूज़, गॉस्पेल और शास्त्रीय संगीत में हैं। इनका पहला एल्बम “Human Conditions” 2026 में जारी हुआ। उदय सहगल और ब्रैंडन अलेक्ज़ेंडर — दोनों नशे से उबर रहे हैं — ने टेनेसी में इलाज के दौरान दोस्त बनने के बाद इस समूह की नींव रखी। ठीक होने की कोशिश में उन्होंने हर रात साथ में संगीत बजाना शुरू किया, विंडसॉन्ग के पिछले आँगन पर, उसी रिहैब घर में जहाँ वे मिले और साथ रहे।',
     },
@@ -196,7 +196,7 @@
     },
     'film.intro': {
       en:
-        'A feature documentary film of the recording sessions, song backstories, and interview footage is currently in post production — with a November 2026 release date. The film was produced by Joseph Garner (Joker, Joker 2) and directed by Meliek Gaynor.',
+        'A feature documentary detailing the recording sessions, song backstories, and interview footage will be released on Apple TV in November 2026.',
       hi:
         'रिकॉर्डिंग सत्रों, गानों की पृष्ठभूमि और इंटरव्यू फुटेज पर आधारित एक फ़ीचर डॉक्यूमेंटरी फ़िल्म अभी पोस्ट-प्रोडक्शन में है—अगस्त 2026 में रिलीज़ की तारीख है। फ़िल्म का निर्माण CLJ Films ने किया है और निर्देशन जोसेफ़ गार्नर (Joker, Joker 2) का है।',
     },
