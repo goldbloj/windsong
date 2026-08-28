@@ -425,8 +425,10 @@ html[data-lang="hi"] body {
   text-align: center;
 }
 /* Part 2: one line of space before “Hard Way Home” (first track after the page break) */
-section:has(.tracks-page-logo) + section .track:first-of-type {
-  margin-top: 1.55em;
+@media (min-width: 821px) {
+  section:has(.tracks-page-logo) + section .track:first-of-type {
+    margin-top: 1.55em;
+  }
 }
 .track {
   margin-bottom: 24px;
@@ -914,7 +916,7 @@ section:has(.tracks-page-logo) + section .track:first-of-type {
   }
 
   section.page:has(.tracks-page-logo) + section.page {
-    padding-top: 20px;
+    padding-top: 0px;
   }
 
   section.page:has(.tracks-page-logo)
@@ -1594,18 +1596,19 @@ section:has(.tracks-page-logo) + section .track:first-of-type {
   }
 
   /* Show the Sunrise photo group on mobile */
-  .cover + .page .track-photos--sunrise {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 0;
-  }
+  @media (max-width: 820px) {
 
-  .cover + .page .track-photos--sunrise img {
-    width: calc(50% - 12px);
-    height: auto;
-    display: block;
+    /* Page 3 Sunrise photos:
+       hidden on mobile because they are now
+       displayed immediately before Awake instead. */
+    .cover + .page .track-photos--sunrise {
+      display: none;
+    }
+
+    /* Page 4 photos remain hidden on mobile */
+    .cover + .page + .page .track-photos {
+      display: none;
+    }
   }
 }
 
@@ -1775,4 +1778,31 @@ section:has(.tracks-page-logo) + section .track:first-of-type {
     margin-top: 50px;
   }
 
+}
+
+@media (min-width: 821px) {
+  .cover {
+    min-height: 0;
+    padding-bottom: 30px;
+  }
+}
+
+.track-photos-mobile-awake {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .track-photos-mobile-awake {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 0 0 24px 0;
+  }
+
+  .track-photos-mobile-awake img {
+    width: calc(50% - 12px);
+    height: auto;
+    display: block;
+  }
 }
