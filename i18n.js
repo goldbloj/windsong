@@ -196,7 +196,7 @@
     },
     'film.intro': {
       en:
-        'A feature documentary detailing the recording sessions, song backstories, and interview footage will be released on Apple TV in November 2026.',
+        'A feature documentary detailing the recording sessions, song backstories, and interview footage will be released on Apple TV in November 2026. The film was produced by Joseph Garner (Joker, Joker 2) and directed by Meliek Gaynor.',
       hi:
         'रिकॉर्डिंग सत्रों, गानों की पृष्ठभूमि और इंटरव्यू फुटेज पर आधारित एक फ़ीचर डॉक्यूमेंटरी फ़िल्म अभी पोस्ट-प्रोडक्शन में है—अगस्त 2026 में रिलीज़ की तारीख है। फ़िल्म का निर्माण CLJ Films ने किया है और निर्देशन जोसेफ़ गार्नर (Joker, Joker 2) का है।',
     },
